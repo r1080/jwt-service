@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.tlabs.jwt.service.MyUserDetailService;
+import com.tlabs.jwt.service.UserDetailService;
 import com.tlabs.jwt.util.JwtUtil;
 
 @Component
@@ -25,7 +25,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 	private static final Logger LOGGER = LoggerFactory.getLogger(AuthenticationFilter.class);
 	
 	@Autowired
-	private MyUserDetailService myUserDetailService;
+	private UserDetailService userDetailService;
 	
 	@Autowired
 	private JwtUtil jwtUtil;
@@ -36,7 +36,14 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 		
 		LOGGER.info("Inside Authentication Filter Before UserNamePassword Authentication");
 		
-		String header = request.getHeader("Authorization");
+		/*
+		final UserDetails userDetails = userDetailService.loadUserByUsername("raghav");
+		
+		LOGGER.info("--------------> User: " + userDetails);
+		*/
+		
+		
+		/*String header = request.getHeader("Authorization");
 		String token = "";
 		
 		if((header != null && !header.isEmpty()) && header.startsWith("Bearer ")){
@@ -54,7 +61,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 			}
 			
 			
-		}
+		}*/
 	
 		filterChain.doFilter(request,response);
 	}
