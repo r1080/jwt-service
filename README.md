@@ -1,6 +1,5 @@
 # jwt-service
-sample poc jwt with spring boot
-
+jwt with spring boot
 
 user authorities mysql:
 
