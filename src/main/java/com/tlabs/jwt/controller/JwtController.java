@@ -49,7 +49,7 @@ public class JwtController {
 		
 		userDetailService.addUser(userDetail);
 		
-		return ResponseEntity.ok("User INput");
+		return ResponseEntity.ok("User Input");
 	}
 
 	@PostMapping("/authenticate")
